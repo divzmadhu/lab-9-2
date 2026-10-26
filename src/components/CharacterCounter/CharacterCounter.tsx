@@ -45,45 +45,61 @@ export default function CharacterCounter(props: CharacterCounterProps) {
             return {
                 emoji: "😊",
                 message: "Welcome! Ready to start writing? Type something below, and I'll help you track your progress!",
+                type: "welcome"
 
             };
 
         }
-        else if (text.length > 0 && text.length <= props.minWords) {
+        else if (wordCount < (props.minWords ?? 0)) {
             return {
                 emoji: "✍️",
                 message: "Keep going! You're getting started.",
+                type: "progress"
+
 
             };
 
 
         }
-        else if (text.length === props.minwords && text.length <= maxWords) {
+        else if (wordCount === (props.minWords ?? 0)) {
             return {
                 emoji: "😊",
                 message: "Great job! You've reached your goal.",
+                type: "success"
 
 
             };
         }
 
 
-        else if ((text.length) * .75 * props.maxWords) {
-            return {
-                emoji: "😮",
-                message: "Almost there! Watch your word count.",
+        // else if (wordCount >= (props.maxWords ?? 0) * 0.75) {
+        //     return {
+        //         emoji: "😮",
+        //         message: "Almost there! Watch your word count.",
+        //         type: "warning"
 
-            };
 
-        }
+        //     };
 
-        else if (text.length >= props.maxWords) {
+        // }
+
+        else if (wordCount >= (props.maxWords ?? 0)) {
             return {
                 emoji: "🛑",
                 message: "You've reached your word limit!",
+                type: "limit"
+
 
             };
 
+        }
+
+        else if (wordCount >= (props.maxWords ?? 0) * 0.75) {
+            return {
+                emoji: "😮",
+                message: "Almost there! Watch your word count.",
+                type: "warning"
+            };
         }
 
 
@@ -91,6 +107,7 @@ export default function CharacterCounter(props: CharacterCounterProps) {
     }
 
     const feedback = getFeedback();
+    console.log("Word count:", wordCount, "Feedback type:", feedback?.type);
 
 
     return (
@@ -107,6 +124,8 @@ export default function CharacterCounter(props: CharacterCounterProps) {
                             wordCount: wordCount,
                             readingTime: readingTime,
                         }}
+                        feedbackType={feedback.type}
+
                     />
 
 

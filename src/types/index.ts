@@ -16,6 +16,8 @@ export interface TextStats {
 export interface StatsDisplayProps {
   stats: TextStats;
   showReadingTime?: boolean;
+  // Used to change the Word Count number's color based on feedback.
+  feedbackType?: string;    
 }
 
 // 3. CharacterCounter Component

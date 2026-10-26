@@ -4,13 +4,18 @@ export default function StatsDisplay(props: StatsDisplayProps) {
     return (
         <div className="stats-row">
 
-            <div className = "stat-item">
+            <div className="stat-item">
                 <p>Character Count: {props.stats.characterCount}</p>
 
             </div>
 
             <div className="stat-item">
-                <p>Word Count: {props.stats.wordCount}</p>
+                <p>
+                    Word Count:{" "}
+                    <span className={`word-count ${props.feedbackType ?? "welcome"}`}>
+                        {props.stats.wordCount}
+                    </span>
+                </p>                  
                 <p>(Min: 5 | Max: 10)</p>
             </div>
 
@@ -18,7 +23,7 @@ export default function StatsDisplay(props: StatsDisplayProps) {
                 <p>Reading Time: {props.stats.readingTime}</p>
             </div>
 
-          
+
 
         </div>
     );

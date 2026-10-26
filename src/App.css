@@ -21,3 +21,23 @@
   margin: 15px 0;
   border-radius: 8px;
 }
+
+.word-count.welcome {
+    color: red;
+}
+
+.word-count.progress {
+    color: goldenrod;
+}
+
+.word-count.success {
+    color: green;
+}
+
+.word-count.warning {
+    color: darkorange;
+}
+
+.word-count.limit {
+    color: red;
+}
