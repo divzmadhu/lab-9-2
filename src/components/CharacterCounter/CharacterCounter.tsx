@@ -94,7 +94,7 @@ export default function CharacterCounter(props: CharacterCounterProps) {
 
         }
 
-        else if (wordCount >= (props.maxWords ?? 0) * 0.75) {
+        else if (wordCount >= Math.ceil (props.maxWords ?? 0) * 0.75) {
             return {
                 emoji: "😮",
                 message: "Almost there! Watch your word count.",
