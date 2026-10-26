@@ -1,4 +1,4 @@
-// import TextInput from "./components/TextInput/TextInput";
+import TextInput from "./components/TextInput/TextInput";
 
 import CharacterCounter from "./components/CharacterCounter/CharacterCounter";
 import StatsDisplay from "./components/StatsDisplay/StatsDisplay";
