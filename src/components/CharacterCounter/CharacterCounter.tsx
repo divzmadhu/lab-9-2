@@ -1,8 +1,6 @@
 import { useState } from "react";
-
 import type { CharacterCounterProps } from "../../types";
 import TextInput from "../TextInput/TextInput";
-
 import StatsDisplay from "../StatsDisplay/StatsDisplay";
 
 
@@ -44,80 +42,138 @@ export default function CharacterCounter(props: CharacterCounterProps) {
         if (text === "") {
             return {
                 emoji: "😊",
-                message: "Welcome! Ready to start writing? Type something below, and I'll help you track your progress!",
+                message: "Welcome! Ready to start writing? Type something above, and I'll help you track your progress!",
                 type: "welcome"
 
             };
 
         }
-        else if (wordCount < (props.minWords ?? 0)) {
-            return {
-                emoji: "✍️",
-                message: "Keep going! You're getting started.",
-                type: "progress"
-
-
-            };
-
-
-        }
-        else if (wordCount === (props.minWords ?? 0)) {
-            return {
-                emoji: "😊",
-                message: "Great job! You've reached your goal.",
-                type: "success"
-
-
-            };
-        }
-
-
-        // else if (wordCount >= (props.maxWords ?? 0) * 0.75) {
+        // else if (wordCount < (props.minWords ?? 0)) {
         //     return {
-        //         emoji: "😮",
-        //         message: "Almost there! Watch your word count.",
-        //         type: "warning"
+        //         emoji: "✍️",
+        //         message: "Keep going! You're getting started.",
+        //         type: "progress"
+
+
+        //     };
+
+
+        // }
+        // else if (wordCount === (props.minWords ?? 0)) {
+        //     return {
+        //         emoji: "😊",
+        //         message: "Great job! You've reached your goal.",
+        //         type: "success"
+
+
+        //     };
+        // }
+
+        // else if (wordCount >= (props.maxWords ?? 0)) {
+        //     return {
+        //         emoji: "🛑",
+        //         message: "You've reached your word limit!",
+        //         type: "limit"
 
 
         //     };
 
         // }
 
-        else if (wordCount >= (props.maxWords ?? 0)) {
+        // else if (wordCount >= (props.maxWords ?? 0)) {
+        //     return {
+        //         emoji: "🛑",
+        //         message: "You've reached your word limit!",
+        //         type: "limit"
+        //     };
+        // }
+        // else if (wordCount === (props.minWords ?? 0)) {
+        //     return {
+        //         emoji: "😊",
+        //         message: "Great job! You've reached your goal.",
+        //         type: "success"
+        //     };
+        // }
+        // else if (wordCount >= Math.ceil((props.maxWords ?? 0) * 0.75)) {
+        //     return {
+        //         emoji: "😮",
+        //         message: "Almost there! Watch your word count.",
+        //         type: "warning"
+        //     };
+        // }
+        // else if (wordCount < (props.minWords ?? 0)) {
+        //     return {
+        //         emoji: "✍️",
+        //         message: "Keep going! You're getting started.",
+        //         type: "progress"
+        //     };
+        // }
+
+        // // Round up 75% of the maximum word count to a whole number.
+        // else if (wordCount >= Math.ceil((props.maxWords ?? 0) * 0.75)) {
+        //     return {
+        //         emoji: "😮",
+        //         message: "Almost there! Watch your word count.",
+        //         type: "warning"
+        //     };
+        // }
+
+        else if (wordCount > (props.maxWords ?? 0)) {
             return {
                 emoji: "🛑",
-                message: "You've reached your word limit!",
+                message: "You've exceeded your word limit!",
                 type: "limit"
-
-
             };
-
         }
-
-        else if (wordCount >= Math.ceil (props.maxWords ?? 0) * 0.75) {
+        else if (wordCount === (props.minWords ?? 0)) {
+            return {
+                emoji: "😊",
+                message: "Great job! You've reached your goal.",
+                type: "success"
+            };
+        }
+        else if (wordCount >= Math.ceil((props.maxWords ?? 0) * 0.75)) {
             return {
                 emoji: "😮",
                 message: "Almost there! Watch your word count.",
                 type: "warning"
             };
         }
-
-
+        else if (wordCount >= Math.ceil((props.maxWords ?? 0) * 0.5)) {
+            return {
+                emoji: "🙂",
+                message: "You're making progress! Keep going.",
+                type: "caution"
+            };
+        }
+        else {
+            return {
+                emoji: "✍️",
+                message: "Keep going! You're getting started.",
+                type: "progress"
+            };
+        }
 
     }
 
-    const feedback = getFeedback();
-    console.log("Word count:", wordCount, "Feedback type:", feedback?.type);
 
+    const feedback = getFeedback();
 
     return (
         <>
-            <div>
-                <TextInput onTextChange={setText} />
+            <div className="character-counter">
+                {/* <h2>Character Counter</h2> */}
 
-                <p>You typed: {text}</p>
+
+                <div className="text-input-box">
+                    <h2>Text Input Display</h2>
+                    <TextInput onTextChange={setText} />
+                </div>
+
+                {/* <p>You typed: {text}</p> */}
 
                 <section className="stats-box">
+                    <h2>Stats Display</h2>
                     <StatsDisplay
                         stats={{
                             characterCount: text.length,
@@ -125,46 +181,43 @@ export default function CharacterCounter(props: CharacterCounterProps) {
                             readingTime: readingTime,
                         }}
                         feedbackType={feedback.type}
+                        minWords={props.minWords}
+                        maxWords={props.maxWords}
 
                     />
 
-
-                </section>
-
-                <section>
-                    <p>Minimum words: {props.minWords}</p>
-                    <p>Maximum words: {props.maxWords}</p>
                 </section>
 
 
-
-
-                {/* <p>Minimum Words = {props.minWords}</p> */}
-                <p>Minimum word requirement met: {hasMinimumWords ? "Yes" : "No"}</p>
-
-                {/* <p>Maximum Words = {props.maxWords}</p> */}
-                <p>Reached Maximum word limit:  {hasMaximumWords ? "Yes" : "No"}</p>
-                {/* <p>Reached Maximum word limit: {hasMaximumWords ? `Have Exceeded the Word limit` : `Words ${hasMaximumWords} / {props.maxWords}` }</p> */}
-                {/* <p>Target Reading Time = {props.targetReadingTime}</p> */}
-
-                {/* <section classname="stats-box">
-                <StatsDisplay
-                    stats={{
-                        characterCount: text.length,
-                        wordCount: wordCount,{props.miniWords} | {props.maxWords}
-                readingTime: readingTime,
-                }}
-            />
-
-
-
+                {/* <section>
+                <p>Minimum words: {props.minWords}</p>
+                <p>Maximum words: {props.maxWords}</p>
             </section> */}
-            </div>
-            {/*Feedback Box */}
-            <div className="feedback-box">
+                {/* 
+            <p>Minimum word requirement met: {hasMinimumWords ? "Yes" : "No"}</p>
 
-                <p>{feedback.emoji} {feedback.message}</p>
+            <p>Reached Maximum word limit:  {hasMaximumWords ? "Yes" : "No"}</p> */}
+
+
+
+                {/*Feedback Box */}
+                < div className="feedback-box" >
+                    <h2>Feedback Display</h2>
+
+                    <p>{feedback.emoji} {feedback.message}</p>
+
+                    {/* Color legend explaining the meaning of each word-count status color */}
+                    <div className="color-legend"> 
+                        <p><span className="legend-color progress"></span> Red — Getting started</p> 
+                        <p><span className="legend-color success"></span> Green — Minimum word goal reached</p> 
+                        <p><span className="legend-color caution"></span> Yellow — Making progress (50%)</p> 
+                        <p><span className="legend-color warning"></span> Orange — Almost there (75%)</p> 
+                        <p><span className="legend-color limit"></span> Red — Word limit exceeded</p> 
+                    </div>
+                </div >
+
             </div>
+
         </>
     );
 }

@@ -16,7 +16,7 @@ export default function StatsDisplay(props: StatsDisplayProps) {
                         {props.stats.wordCount}
                     </span>
                 </p>                  
-                <p>(Min: 5 | Max: 10)</p>
+                <p>(Min: {props.minWords} | Max: {props.maxWords})</p>
             </div>
 
             <div className="stat-item">

@@ -1,9 +1,35 @@
-.stats-box {
+.character-counter,
+.text-input-box,
+.stats-box,
+.feedback-box
+{
   border: 2px solid white;
   padding: 15px;
   margin: 15px 0;
   border-radius: 8px;
 }
+
+.text-input-box textarea {
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+/* .text-input-box{
+  border: 2px solid white;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 8px;
+
+} */
+
+/* .stats-box {
+  border: 2px solid white;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 8px;
+} */
 
 .stats-row {
   display: flex;
@@ -15,29 +41,79 @@
   margin: 5px 0;
 }
 
-.feedback-box {
+/* .feedback-box {
   border: 2px solid white;
   padding: 15px;
   margin: 15px 0;
   border-radius: 8px;
-}
+} */
 
-.word-count.welcome {
+/*Word count colors*/ 
+/* .word-count.welcome {
     color: red;
-}
+} */
 
 .word-count.progress {
-    color: goldenrod;
+    color: red;
 }
 
 .word-count.success {
     color: green;
 }
 
+.word-count.caution {
+   color: blue;
+}
+
 .word-count.warning {
     color: darkorange;
 }
 
+
+.word-count.welcome,
 .word-count.limit {
     color: red;
+}
+
+
+/* Styles the color legend and its indicators inside the feedback box */
+.color-legend {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.color-legend p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 6px 0;
+}
+
+.legend-color {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.legend-color.progress {
+    background-color: red;
+}
+
+.legend-color.success {
+    background-color: green;
+}
+
+.legend-color.caution {
+    background-color: yellow;
+    border: 1px solid #999;
+}
+
+.legend-color.warning {
+    background-color: darkorange;
+}
+
+.legend-color.limit {
+    background-color: red;
 }

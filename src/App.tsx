@@ -10,10 +10,10 @@ export default function App() {
   return (
     <div>
       <h1>Lab 2 State & Events </h1>
-      <h2>Character Counter</h2>
+      <h2>Character Counter Display</h2>
       <CharacterCounter
         minWords={10}
-        maxWords={11}
+        maxWords={20}
         targetReadingTime={5}
       />
       {/* <h2>Text Statistics</h2>
