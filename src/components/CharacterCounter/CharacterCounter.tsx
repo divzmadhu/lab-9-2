@@ -16,26 +16,6 @@ export default function CharacterCounter(props: CharacterCounterProps) {
     // Calculate the Reading Time
     const readingTime = wordCount / 200;
 
-    // Checking if they have atleast minimum words as mentionted in the App.tsx
-    let hasMinimumWords;
-
-    if (wordCount >= (props.minWords ?? 0)) {
-        hasMinimumWords = true;
-    } else {
-        hasMinimumWords = false;
-    }
-
-    // Checking if it has reached the Maximum words as mentioned in the App.tsx
-    let hasMaximumWords;
-
-    // if (wordCount <= ((props.maxWords)/2 ?? 0)) {
-    if (wordCount <= (props.maxWords ?? 0)) {
-        hasMaximumWords = false;
-    }
-    else {
-        hasMaximumWords = true;
-    }
-
 
     // A userdefined function to decide which feedback to display
     function getFeedback() {
