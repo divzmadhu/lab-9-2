@@ -16,21 +16,6 @@
     resize: vertical;
 }
 
-/* .text-input-box{
-  border: 2px solid white;
-  padding: 15px;
-  margin: 15px 0;
-  border-radius: 8px;
-
-} */
-
-/* .stats-box {
-  border: 2px solid white;
-  padding: 15px;
-  margin: 15px 0;
-  border-radius: 8px;
-} */
-
 .stats-row {
   display: flex;
   justify-content: space-around;
@@ -41,17 +26,6 @@
   margin: 5px 0;
 }
 
-/* .feedback-box {
-  border: 2px solid white;
-  padding: 15px;
-  margin: 15px 0;
-  border-radius: 8px;
-} */
-
-/*Word count colors*/ 
-/* .word-count.welcome {
-    color: red;
-} */
 
 .word-count.progress {
     color: red;
@@ -62,7 +36,7 @@
 }
 
 .word-count.caution {
-   color: blue;
+   color: yellow;
 }
 
 .word-count.warning {

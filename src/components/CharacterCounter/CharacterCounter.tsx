@@ -48,75 +48,7 @@ export default function CharacterCounter(props: CharacterCounterProps) {
             };
 
         }
-        // else if (wordCount < (props.minWords ?? 0)) {
-        //     return {
-        //         emoji: "✍️",
-        //         message: "Keep going! You're getting started.",
-        //         type: "progress"
-
-
-        //     };
-
-
-        // }
-        // else if (wordCount === (props.minWords ?? 0)) {
-        //     return {
-        //         emoji: "😊",
-        //         message: "Great job! You've reached your goal.",
-        //         type: "success"
-
-
-        //     };
-        // }
-
-        // else if (wordCount >= (props.maxWords ?? 0)) {
-        //     return {
-        //         emoji: "🛑",
-        //         message: "You've reached your word limit!",
-        //         type: "limit"
-
-
-        //     };
-
-        // }
-
-        // else if (wordCount >= (props.maxWords ?? 0)) {
-        //     return {
-        //         emoji: "🛑",
-        //         message: "You've reached your word limit!",
-        //         type: "limit"
-        //     };
-        // }
-        // else if (wordCount === (props.minWords ?? 0)) {
-        //     return {
-        //         emoji: "😊",
-        //         message: "Great job! You've reached your goal.",
-        //         type: "success"
-        //     };
-        // }
-        // else if (wordCount >= Math.ceil((props.maxWords ?? 0) * 0.75)) {
-        //     return {
-        //         emoji: "😮",
-        //         message: "Almost there! Watch your word count.",
-        //         type: "warning"
-        //     };
-        // }
-        // else if (wordCount < (props.minWords ?? 0)) {
-        //     return {
-        //         emoji: "✍️",
-        //         message: "Keep going! You're getting started.",
-        //         type: "progress"
-        //     };
-        // }
-
-        // // Round up 75% of the maximum word count to a whole number.
-        // else if (wordCount >= Math.ceil((props.maxWords ?? 0) * 0.75)) {
-        //     return {
-        //         emoji: "😮",
-        //         message: "Almost there! Watch your word count.",
-        //         type: "warning"
-        //     };
-        // }
+        
 
         else if (wordCount > (props.maxWords ?? 0)) {
             return {
@@ -187,18 +119,6 @@ export default function CharacterCounter(props: CharacterCounterProps) {
                     />
 
                 </section>
-
-
-                {/* <section>
-                <p>Minimum words: {props.minWords}</p>
-                <p>Maximum words: {props.maxWords}</p>
-            </section> */}
-                {/* 
-            <p>Minimum word requirement met: {hasMinimumWords ? "Yes" : "No"}</p>
-
-            <p>Reached Maximum word limit:  {hasMaximumWords ? "Yes" : "No"}</p> */}
-
-
 
                 {/*Feedback Box */}
                 < div className="feedback-box" >

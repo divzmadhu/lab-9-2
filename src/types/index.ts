@@ -17,7 +17,11 @@ export interface StatsDisplayProps {
   stats: TextStats;
   showReadingTime?: boolean;
   // Used to change the Word Count number's color based on feedback.
-  feedbackType?: string;    
+  feedbackType?: string;   
+  
+  // As I am using them in the stats Display 
+  minWords?: number;
+  maxWords?: number;
 }
 
 // 3. CharacterCounter Component

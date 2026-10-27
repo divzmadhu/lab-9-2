@@ -12,19 +12,10 @@ export default function App() {
       <h1>Lab 2 State & Events </h1>
       <h2>Character Counter Display</h2>
       <CharacterCounter
-        minWords={10}
-        maxWords={20}
+        minWords={25}
+        maxWords={100}
         targetReadingTime={5}
       />
-      {/* <h2>Text Statistics</h2>
-      <StatsDisplay
-        stats={{
-          characterCount: 100,
-          wordCount: 20,
-          readingTime: 2,
-        }}
-      />
-      <textarea /> */}
 
     </div>
   );
